@@ -2,6 +2,10 @@
 
 This project integrates the OpenWeatherMap API with AWS services to perform analytics. The project fetches data from the OpenWeatherMap API, stores it in an S3 bucket, catalogs the data using AWS Glue, and queries it using Amazon Athena.
 
+## Project Architecture
+
+![Architecture diagram](docs/architecture.jpg)
+
 ## Project Structure
 
 ```
