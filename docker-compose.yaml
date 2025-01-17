@@ -1,0 +1,26 @@
+version: '3.8'
+
+services:
+  python:
+    build: ./src
+    volumes:
+      - ./src:/app
+    working_dir: /app
+    environment:
+      - AWS_ACCESS_KEY_ID=${AWS_ACCESS_KEY_ID}
+      - AWS_SECRET_ACCESS_KEY=${AWS_SECRET_ACCESS_KEY}
+      - AWS_REGION=${AWS_REGION}
+      - S3_BUCKET_NAME=${S3_BUCKET_NAME}
+      - OPENWEATHER_API_KEY=${OPENWEATHER_API_KEY}
+    command: ["python", "fetch_data.py"]
+
+  terraform:
+    image: hashicorp/terraform:latest
+    volumes:
+      - ./terraform:/terraform
+    working_dir: /terraform
+    environment:
+      - AWS_ACCESS_KEY_ID=${AWS_ACCESS_KEY_ID}
+      - AWS_SECRET_ACCESS_KEY=${AWS_SECRET_ACCESS_KEY}
+      - AWS_REGION=${AWS_REGION}
+    entrypoint: ["sh", "-c", "terraform init && terraform apply -auto-approve"]
