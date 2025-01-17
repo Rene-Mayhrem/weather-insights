@@ -8,20 +8,20 @@ This project integrates the OpenWeatherMap API with AWS services to perform anal
 weather-insights
 ├── src
 │   ├── fetch_data.py        # Main script for fetching data and uploading data in s3
-│   ├── requirements.txt
-|   ├── cities.json
-|   └── Dockerfile           # Defines the Docker image for the application
+│   ├── requirements.txt     # dependencies to be installed with pip
+|   ├── cities.json          # json files for input
+|   └── Dockerfile           # Defines the Docker image for the python app
 ├── terraform
 │   ├── main.tf              # Main Terraform configuration for AWS resources
 │   ├── variables.tf         # Variables for Terraform configuration
-│   ├── output.tf           # Outputs of the Terraform configuration
-|   ├── terraform.tfvars
-|   ├── iam-policy.json
-|   ├── Dockerfile
+│   ├── output.tf            # Outputs of the Terraform configuration
+|   ├── terraform.tfvars     # personal variables for the user (credentials)
+|   ├── iam-policy.json      # JSON configuration for policy role
+|   ├── Dockerfile           # Define the Docker image for the terraform app
 │   └── iam_roles.tf         # IAM roles and policies for AWS access
 ├── README.md                # Documentation for the project
-├── .env
-├── docker-compose.yaml
+├── .env                     # User credentials
+├── docker-compose.yaml      # Setup file for containers -> python and terraform
 └── .gitignore               # Files and directories to ignore in version control
 
 ```
